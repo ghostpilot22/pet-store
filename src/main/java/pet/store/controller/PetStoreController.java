@@ -2,7 +2,9 @@ package pet.store.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -29,4 +31,13 @@ public class PetStoreController
 		return petStoreService.savePetStore(petStoreData);
 	}
 	
+	@PutMapping("/pet_store/{id}")
+	public PetStoreData updatePetStore(
+			@PathVariable Integer id, 
+			@RequestBody PetStoreData petStoreData)
+	{
+		petStoreData.setPetStoreId(id);
+		log.info("Updating pet store {}", petStoreData);
+		return petStoreService.savePetStore(petStoreData);
+	}
 }
