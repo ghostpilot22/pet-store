@@ -17,7 +17,7 @@ public class Employee
 {
 	@Id 
 	@GeneratedValue
-	private int employeeId;
+	private Integer employeeId;
 	
 	@Column
 	private String employeeFirstName;

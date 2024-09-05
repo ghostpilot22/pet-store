@@ -21,7 +21,7 @@ public class PetStore
 {
 	@Id 
 	@GeneratedValue
-	private int petStoreId;
+	private Integer petStoreId;
 	
 	@Column
 	private String petStoreName;
@@ -36,7 +36,7 @@ public class PetStore
 	private String petStoreState;
 	
 	@Column
-	private int petStoreZip;
+	private String petStoreZip;
 	
 	@Column
 	private String petStorePhone;
