@@ -1,5 +1,6 @@
 package pet.store.controller.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import lombok.Data;
@@ -38,12 +39,21 @@ public class PetStoreData
 		petStoreState = petStore.getPetStoreState();
 		petStoreZip = petStore.getPetStoreZip();
 		petStorePhone = petStore.getPetStorePhone();
-
-		for(Customer customer : petStore.getCustomers())
-			customers.add(new PetStoreCustomer(customer));
 		
-		for(Employee employee : petStore.getEmployees())
-			employees.add(new PetStoreEmployee(employee));
+		customers = new HashSet<PetStoreCustomer>();
+		employees = new HashSet<PetStoreEmployee>();
+
+		if(petStore.getCustomers() != null) 
+		{
+			for(Customer customer : petStore.getCustomers())
+				customers.add(new PetStoreCustomer(customer));
+		}
+		
+		if(petStore.getEmployees() != null)
+		{
+			for(Employee employee : petStore.getEmployees())
+				employees.add(new PetStoreEmployee(employee));
+		}
 	}
 	
 	@Data @NoArgsConstructor
